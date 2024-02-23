@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>IP Address Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="app.css" />
+
+  <style>
+    .errorInvalidIp {
+      border: 2px solid rgba(156,0,0,1);
+      border-radius: 12px;
+      margin-bottom: 0px;
+      box-shadow: 0px 0px 13px 0px rgba(156,0,0,1);
+    }
+  </style>
+</head>
+
+<body>
+  <h1>IP Address Tracker</h1>
+  <form action="">
+    <div class="searchBox">
+      <input type="text" placeholder="Search for any IP address" />
+      <button type="submit">
+        <img src="images/icon-arrow.svg" alt="arrow icon for subbmit search" />
+      </button>
+    </div>
+    <p id="invalidIpMsg">Invalid IP format!</p>
+  </form>
+
+  <section class="results">
+    <div class="resultsDetails">
+      <p class="resultType">IP Address</p>
+      <p id="ipAddress">18.65.3.34</p>
+    </div>
+    <div class="resultsDetails">
+      <p class="resultType">Location</p>
+      <p id="locationResult">Seattle, <span id="country">United States</span></p>
+    </div>
+    <div class="resultsDetails">
+      <p class="resultType">Timezone</p>
+      <p id="utcResult">UTC -8</p>
+    </div>
+    <div class="resultsDetails">
+      <p class="resultType">ISP</p>
+      <p id="ispResult">Amazon Technologies Inc.</p>
+    </div>
+  </section>
+
+  <div id="map"></div>
+
+  <script>
+    ((g) => {
+      var h,
+        a,
+        k,
+        p = "The Google Maps JavaScript API",
+        c = "google",
+        l = "importLibrary",
+        q = "__ib__",
+        m = document,
+        b = window;
+      b = b[c] || (b[c] = {});
+      var d = b.maps || (b.maps = {}),
+        r = new Set(),
+        e = new URLSearchParams(),
+        u = () =>
+          h ||
+          (h = new Promise(async (f, n) => {
+            await (a = m.createElement("script"));
+            e.set("libraries", [...r] + "");
+            for (k in g)
+              e.set(
+                k.replace(/[A-Z]/g, (t) => "_" + t[0].toLowerCase()),
+                g[k],
+              );
+            e.set("callback", c + ".maps." + q);
+            a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
+            d[q] = f;
+            a.onerror = () => (h = n(Error(p + " could not load.")));
+            a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+            m.head.append(a);
+          }));
+      d[l]
+        ? console.warn(p + " only loads once. Ignoring:", g)
+        : (d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)));
+    })({ key: "AIzaSyBoh3sS-HRer71XOLQ4EHe85lZiTqkvmdI", v: "weekly" });
+  </script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
