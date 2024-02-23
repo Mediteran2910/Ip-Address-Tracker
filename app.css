@@ -168,6 +168,7 @@ span {
 
   form{
     min-width: 45%;
+    margin-bottom: 20px;
   }
 
   ::placeholder{
