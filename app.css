@@ -1,0 +1,186 @@
+* {
+  font-family: "Rubik", sans-serif;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-image: url(images/19836727_6179262.jpg);
+  background-repeat: no-repeat;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin: 20px 5px 5px 5px;
+  text-align: center;
+  color: white;
+  letter-spacing: 1px;
+}
+
+div {
+  align-self: center;
+  display: flex;
+  max-width: 100%;
+  margin: 10px 10px;
+}
+
+.searchBox {
+  margin-bottom: 0px;
+ 
+}
+
+input {
+  flex: 1;
+  border: none;
+  outline: none;
+  width: 80%;
+  padding: 1rem 0.75rem;
+  border-radius: 10px 0 0 10px;
+  box-shadow: 0px 0px 13px 0px rgba(181,181,181,1);
+}
+
+button {
+  flex: auto;
+  max-width: 15%;
+  padding: 1rem;
+  border: none;
+  outline: none;
+  border-radius: 0 10px 10px 0;
+  background-color: #828282;
+}
+
+::placeholder {
+  font-size: 13px;
+  text-align: left;
+}
+
+.results {
+  background-color: white;
+  min-width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 10px 0px 10px;
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0px 0px 34px -7px rgba(209, 209, 209, 1);
+}
+
+#map {
+  position: absolute;
+  bottom: 0px;
+  z-index: 0;
+  width: 100%;
+  min-height: 68%;
+  margin: 0px;
+}
+
+.resultsDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.resultType {
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+  color: hsl(0, 0%, 59%);
+}
+
+#ispResult,
+#utcResult,
+#locationResult,
+#ipAddress,
+span {
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: hsl(0, 0%, 17%);
+  text-align: center;
+}
+
+.gm-style-mtc {
+  display: none !important;
+}
+
+#invalidIpMsg {
+  color: red;
+  font-size: 12px;
+  padding-left: 18px;
+  margin-top: 5px;
+  display: none;
+  letter-spacing: 1px;
+  font-weight: 500;
+
+}
+
+@media (min-width: 955px) {
+  .results {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 1.5rem;
+    margin-top: 25px;
+  }
+
+  .results {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 2.25rem;
+    margin-top: 25px;
+  }
+
+  .resultsDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-right: 10px; 
+  }
+
+  .results > * {
+    border-right: 1px solid black; 
+  }
+
+  .results > :last-child {
+    border-right: none; 
+  }
+
+ 
+  #ispResult, #locationResult{
+    text-align: left;
+  }
+
+  form{
+    min-width: 45%;
+  }
+
+  ::placeholder{
+    text-align: left;
+    font-size: 15px;
+  }
+
+  #invalidIpMsg{
+    font-size: 15px;
+    
+  }
+
+#map{
+  min-height: 75%;
+}
+}
