@@ -14,7 +14,7 @@ const invalidIpMsg = document.getElementById("invalidIpMsg");
 const getSome = async (ip) => {
   try {
     const res = await axios.get(
-      `https://api.ipgeolocation.io/ipgeo?apiKey=cfa93acde9ac44d99a28bad1ca811b8b&ip=${ip}`,
+      `https://api.ipgeolocation.io/ipgeo?apiKey=${{ secrets.GEO_IP_API }}&ip=${ip}`,
     );
     console.log(res);
     return res.data;
