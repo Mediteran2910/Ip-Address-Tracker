@@ -1,0 +1,20 @@
+name: workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Use API_KEY_1
+        run: echo ${{ secrets.GEO_IP_API }}
+
+      - name: Use API_KEY_2
+        run: echo ${{ secrets.GOOGLE_MAPS_API }}
