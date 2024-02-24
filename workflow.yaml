@@ -19,7 +19,7 @@ jobs:
       - name: Use API_KEY_2
         run: echo ${{ secrets.GOOGLE_MAPS_API }}
 
-          - name: Execute JavaScript and HTML
-  run: 
+      - name: Execute JavaScript and HTML
+        run: |
           echo "Google Maps API Key: ${{ secrets.GOOGLE_MAPS_API }}"
           echo "Geo IP API Key: ${{ secrets.GEO_IP_API }}"
