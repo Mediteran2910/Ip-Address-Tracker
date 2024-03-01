@@ -1,0 +1,29 @@
+name: Example Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  example-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Use GEO_IP_API in JavaScript
+        env:
+          GEO_IP_API: ${{ secrets.GEO_IP_API }}
+        run: |
+          echo "GEO_IP_API Key: $GEO_IP_API"
+          
+
+      - name: Use GOOGLE_MAPS_API in HTML
+        env:
+          GOOGLE_MAPS_API: ${{ secrets.GOOGLE_MAPS_API }}
+        run: |
+          echo "GOOGLE_MAPS_API Key: $GOOGLE_MAPS_API"
+          
+
+         
